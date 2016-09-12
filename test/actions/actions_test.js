@@ -25,16 +25,20 @@ describe('Actions', () => {
         let action;
         const testParentId = 3817;
 
-        beforeEach(() => {
-            action = getTransaction(testParentId);
-        })
 
         it('has the correct type', () => {
+            action = getTransaction(testParentId);
             expect(action.type).to.equal( GET_TRANSACTION );
         })
         
         it('gets the correct transaction object', () => {
+            action = getTransaction(testParentId);
             expect(action.payload.id).to.equal(testParentId);
+        })
+
+        it('handles unknown id', () => {
+            action = getTransaction(131231234);
+            expect(action.payload).to.equal('Not found')
         })
     })
 })

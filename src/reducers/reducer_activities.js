@@ -6,6 +6,5 @@ export default function (state = [], action) {
         case TOP_FIVE_ACTIVITIES:
             return action.payload;
     }
-
     return state;
 }

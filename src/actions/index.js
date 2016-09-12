@@ -16,7 +16,13 @@ export function topFive() {
 }
 
 export function getTransaction(parentId) {
-    const transaction = transactionData.find((x) => {return x.id == parentId})
+    let transaction;
+
+    if (transactionData.find((x) => {return x.id == parentId})) {
+        transaction = transactionData.find((x) => {return x.id == parentId})
+    } else {
+        transaction = 'Not found';
+    }
 
     return {
         type: GET_TRANSACTION,
