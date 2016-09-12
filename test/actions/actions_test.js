@@ -1,10 +1,26 @@
 import { expect } from '../test_helper';
 //types
-import { GET_TRANSACTION } from '../../src/actions/types';
+import { TOP_FIVE_ACTIVITIES, GET_TRANSACTION } from '../../src/actions/types';
 //action functions
-import { getTransaction } from '../../src/actions/index';
+import { topFive, getTransaction } from '../../src/actions/index';
 
 describe('Actions', () => {
+    describe('Get top five activities', () => {
+        let action;
+
+        beforeEach(() => {
+            action = topFive();
+        })
+
+        it('has the correct type', () => {
+            expect(action.type).to.equal( TOP_FIVE_ACTIVITIES );
+        })
+
+        it('returns 5 activities', () => {
+            expect(action.payload.length).to.equal(5);
+        })
+    })
+
     describe('Get transaction', () => {
         let action;
         const testParentId = 3817;
