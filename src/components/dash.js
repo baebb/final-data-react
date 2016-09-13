@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
-import { topFive } from '../actions/index';
+import {topFive} from '../actions/index';
 import Activity from './activity';
 
 class Dash extends React.Component {
@@ -9,15 +9,15 @@ class Dash extends React.Component {
         this.props.topFive();
     }
 
-    renderActivity (activityObj) {
+    renderActivity(activityObj) {
         const id = activityObj.id;
         const parentId = activityObj.parent_id;
         const name = activityObj.name.split('  ')[0];
-        const date = activityObj.created_at.substr(0,10);
+        const date = activityObj.created_at.substr(0, 10);
         const amount = activityObj.amount;
 
         return (
-            <Activity key={id} id={id} parentId={parentId} name={name} date={date} amount={amount} />
+            <Activity key={id} id={id} parentId={parentId} name={name} date={date} amount={amount}/>
         )
     }
 
@@ -37,7 +37,7 @@ class Dash extends React.Component {
 }
 
 function mapStateToProps(state) {
-    return { largestActivities: state.largestActivities}
+    return {largestActivities: state.largestActivities}
 }
 
-export default connect(mapStateToProps, { topFive })(Dash);
+export default connect(mapStateToProps, {topFive})(Dash);

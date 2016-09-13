@@ -1,8 +1,8 @@
 import { expect } from '../test_helper';
 //types
-import { TOP_FIVE_ACTIVITIES, GET_TRANSACTION } from '../../src/actions/types';
+import { TOP_FIVE_ACTIVITIES, GET_TRANSACTION, GET_MERCHANT } from '../../src/actions/types';
 //action functions
-import { topFive, getTransaction } from '../../src/actions/index';
+import { topFive, getTransaction, getMerchantCategory } from '../../src/actions/index';
 
 describe('Actions', () => {
     describe('Get top five activities', () => {
@@ -38,6 +38,26 @@ describe('Actions', () => {
 
         it('handles unknown id', () => {
             action = getTransaction(131231234);
+            expect(action.payload).to.equal('Not found')
+        })
+    })
+
+    describe('Get merchant', () => {
+        let action;
+        const testMcc = 1520;
+
+        it('has the correct type', () => {
+            action = getMerchantCategory(testMcc);
+            expect(action.type).to.equal( GET_MERCHANT );
+        })
+
+        it('gets the correct merchant object', () => {
+            action = getMerchantCategory(testMcc);
+            expect(Number(action.payload.mcc)).to.equal(testMcc);
+        })
+
+        it('handles unknown mcc', () => {
+            action = getMerchantCategory(131231234);
             expect(action.payload).to.equal('Not found')
         })
     })
