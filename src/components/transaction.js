@@ -2,7 +2,7 @@ import React from 'react';
 
 export default (props) => {
     return (
-        <div className="col-xs-12 col-md-8">
+        <div className="col-xs-12 col-md-8 offset-md-2">
             <div className="card">
                 <div className="card-header">
                     <div className="row">
@@ -10,7 +10,7 @@ export default (props) => {
                            <span className="font-weight-bold">{props.name}</span>
                         </div>
                         <div className="col-xs-4 text-xs-right">
-                            <span className="font-weight-bold text-danger">{props.amount}</span>
+                            <span className="font-weight-bold text-danger">- ${props.amount}</span>
                         </div>
                     </div>
                 </div>
@@ -22,7 +22,7 @@ export default (props) => {
                     <small>Date:</small>
                     <p className="capitalize">{props.date}</p>
                 </div>
-                <div className="card-footer text-xs-right">
+                <div className="card-footer">
                     <button onClick={props.getMerchantCategory.bind(this,props.mcc)} className="btn btn-primary">Get Merchant Details</button>
                 </div>
             </div>

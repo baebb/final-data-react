@@ -1,3 +1,11 @@
 .capitalize {
     text-transform: capitalize;
 }
+
+.container {
+    margin-top: 20px;
+}
+
+.topRow {
+    margin-bottom: 20px;
+}

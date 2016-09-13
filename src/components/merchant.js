@@ -2,7 +2,7 @@ import React from 'react';
 
 export default (props) => {
     return (
-        <div className="col-xs-12 col-md-8">
+        <div className="col-xs-12 col-md-8 offset-md-2">
             <div className="card">
                 <div className="card-block">
                     <small>Merchant category:</small>
