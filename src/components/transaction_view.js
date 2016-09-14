@@ -7,7 +7,18 @@ import Merchant from './merchant';
 
 class TransactionView extends React.Component {
     componentWillMount() {
-        this.props.getTransaction(this.props.params.transactionId);
+        this.theSecretPromise()
+            .then(() => {
+            this.props.getMerchantCategory(this.props.transaction.merchant_category_code);
+        })
+    }
+
+
+    theSecretPromise() {
+        return new Promise((resolve) => {
+            this.props.getTransaction(this.props.params.transactionId);
+            return resolve();
+        })
     }
 
     render() {
